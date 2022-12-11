@@ -1,21 +1,12 @@
 # Aoc22
 
-**TODO: Add description**
+Advent of code 2022 solutions in Elixir.
 
-## Installation
+For the sake of fun and avoiding error handling code all over the place, I'm
+always assuming that puzzle input is exactly as given, with no corner cases etc.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `aoc_22` to your list of dependencies in `mix.exs`:
+This basically means there aren't many total functions, and it's very liable to
+crash on bad input.
 
-```elixir
-def deps do
-  [
-    {:aoc_22, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/aoc_22>.
-
+The `day` module can be `used` to dump in some helper functions, as well as to 
+auto-define `run/0` which uses the `__MODULE__` to get the input.

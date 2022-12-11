@@ -1,6 +1,8 @@
 defmodule Aoc22 do
   @day_re ~r/Elixir.Aoc22.Day(?<day>\d{2})/
 
+  @all_days [Aoc22.Day01, Aoc22.Day02, Aoc22.Day03, Aoc22.Day04]
+
   @spec input_for(module(), 1 | 2) :: String.t()
   def input_for(module, part) do
     filepath = input_filepath_for(module, part)
@@ -8,7 +10,7 @@ defmodule Aoc22 do
   end
 
   @spec input_lines_for(module, 1 | 2) :: Stream.t()
-  def input_lines_for(module, part) do
+  def input_lines_for(module, part \\ 1) do
     filepath = input_filepath_for(module, part)
 
     filepath
@@ -35,5 +37,10 @@ defmodule Aoc22 do
   def parse_int!(input) do
     {int, ""} = Integer.parse(input)
     int
+  end
+
+  @spec run :: [{module(), keyword()}]
+  def run do
+    Enum.map(@all_days, &{&1, &1.run()})
   end
 end

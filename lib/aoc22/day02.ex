@@ -1,4 +1,6 @@
 defmodule Aoc22.Day02 do
+  use Aoc22.Day
+
   @type outcome :: :lose | :draw | :win
   @type move :: :rock | :paper | :scissors
   @type turn :: {move, move}
@@ -76,31 +78,19 @@ defmodule Aoc22.Day02 do
   def move_score_for(:scissors), do: 3
 
   @spec part_1(Stream.t()) :: non_neg_integer()
-  def part_1(input_lines) do
-    input_lines
-    |> Stream.map(&String.trim/1)
+  def part_1(input) do
+    input
     |> Stream.map(&parse_naive_line/1)
     |> Stream.map(&score_for/1)
     |> Enum.sum()
   end
 
   @spec part_2(Stream.t()) :: non_neg_integer()
-  def part_2(input_lines) do
-    input_lines
-    |> Enum.map(&String.trim/1)
+  def part_2(input) do
+    input
     |> Enum.map(&parse_strat_line/1)
     |> Enum.map(&turn_for/1)
-    |> IO.inspect()
     |> Enum.map(&score_for/1)
     |> Enum.sum()
   end
-
-  def run() do
-    [
-      part_1: part_1(input()),
-      part_2: part_2(input())
-    ]
-  end
-
-  def input(), do: Aoc22.input_lines_for(__MODULE__, 1)
 end
