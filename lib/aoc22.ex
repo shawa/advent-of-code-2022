@@ -1,5 +1,4 @@
 defmodule Aoc22 do
-  alias Inspect.Stream
   @day_re ~r/Elixir.Aoc22.Day(?<day>\d{2})/
 
   @spec input_for(module(), 1 | 2) :: String.t()
@@ -11,7 +10,10 @@ defmodule Aoc22 do
   @spec input_lines_for(module, 1 | 2) :: Stream.t()
   def input_lines_for(module, part) do
     filepath = input_filepath_for(module, part)
-    File.stream!(filepath)
+
+    filepath
+    |> File.stream!()
+    |> Stream.map(&String.trim/1)
   end
 
   defp input_filepath_for(module, part) do
