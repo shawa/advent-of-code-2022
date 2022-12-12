@@ -4,6 +4,7 @@ alias Aoc22.Day03
 alias Aoc22.Day03.Rucksack
 alias Aoc22.Day04
 alias Aoc22.Day05
+alias Aoc22.Day05.Parser
 alias Aoc22.Day06
 alias Aoc22.Day07
 alias Aoc22.Day08
